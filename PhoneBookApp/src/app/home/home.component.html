@@ -1,0 +1,64 @@
+
+<div class="container w-50" >
+    <div class="text-center my-3">
+      <h2><i class="fas fa-address-book mx-2"></i>Phone Book App</h2>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3 class="mt-5">Contacts</h3>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary mt-5 float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">+Add Contact</button>
+      </div>
+    </div>
+  
+    <div class="form-group my-4">
+      <input type="text" class="form-control" placeholder="Search for contact for last name..."[(ngModel)]="searchText"/>
+    </div>
+  
+    <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="addContact()">
+            <div class="form-group mb-2">
+              <input type="text" class="form-control" placeholder="Firstname" required name="firstname" [(ngModel)]="homeobj.firstname">
+                      </div>
+            <div class="form-group mb-2">
+              <input type="text" class="form-control" placeholder="Lastname" required name="lastname" [(ngModel)]="homeobj.lastname">
+            </div>
+            <div class="form-group mb-2">
+              <input type="text" class="form-control" placeholder="Phonenumber" required name="phonenumber" [(ngModel)]="homeobj.phonenumber">
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Create</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <div class="list mb-3" *ngFor="let contact of (contactList | contactpipe:searchText )">
+    <div class="row pt-3 border">
+      <div class="col">
+        <h4>{{contact.firstname}}{{contact.lastname}}</h4>
+        <p class="text-muted"><i class="fas fa-phone-all"></i>{{contact.phonenumber}}</p>
+      </div>
+      <div class="col">
+        <button (click)="deleteContact(contact.phonenumber!)" class="btn btn-danger float-end mt-1"><i class="far fa-trash-alt"></i></button>
+      </div>
+    </div>
+</div>
+</div>
+
+  

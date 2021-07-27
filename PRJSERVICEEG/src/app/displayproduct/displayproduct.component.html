@@ -1,0 +1,27 @@
+<p>displayproduct works!</p>
+<div class="container mt-5">
+    <h2>List of Products</h2>
+    <a routerLink="/productcrud/" class="btn btn-primary mt-5">Add Product</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ProductName</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Image</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let p of pro">
+        <tr>
+            <td>{{p.pname}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.quantity}}</td>
+            <td><img [src]=p.image height="100" width="100"></td>
+            <td ><a [routerLink]="['/productcrud/',p.pid]">Edit</a></td>
+            <td><a [routerLink]="['/productinfo/',p.pid]">View</a></td>
+           
+        </tr>
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,30 @@
+<p>datatypes works!</p>
+<div class="data">
+
+    <!--Interpolation-->
+    First Name:{{name}}<br/>
+    Age:{{age}}<br/>
+    Hobbies:{{hobbies}}<br>
+    Marks:{{marks}}<br>
+    Boolean:{{Istrue}}<br>
+    Tuple:{{tupleval}}<br>
+    Any:{{dynamicvalue}}<br>
+    
+    Object:
+
+    FatherName:{{student.fathername}}
+    Address:{{student.address}}
+  
+    <br>
+
+    JSON:{{student|json}}
+}
+</div>
+<hr>
+<img src="assets/images/lti.jpg" alt="LTI" height="150" width="150"/>
+<hr>
+<img src={{picture}} alt="LTI"/>
+<hr>
+<h2>Property Binding</h2>
+<img [src]=picture alt="LTI"/>
+

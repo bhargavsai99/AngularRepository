@@ -1,0 +1,5 @@
+<h2>CARS</h2>
+
+<div *ngFor = "let car of cars">
+    <img [ngStyle]="{'border': car.name ==='Mercedes'? '10px solid red':'0px'}" [src]="car.picture" [alt]="car.name" height="1000px" width="1000px">
+</div>
